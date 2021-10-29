@@ -1,17 +1,7 @@
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "user";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
-include 'insert.php';
+
+include 'action2.php';
 ?>
 
 
@@ -51,7 +41,7 @@ include 'insert.php';
                 <tr>
                     <td id="comment">Enter User Name :</td>
 
-                    <form action="insert.php" method="POST" id="file">
+                    <form action="action2.php" method="POST" id="file">
                         <td><input type="text"  name="username"
                                 id="usrname" /></td>
                                 
@@ -63,7 +53,7 @@ include 'insert.php';
 
 
                         </form>
-                        <input type="button" value="Submit" onclick="test()" class="btn" />
+                        <input type="button" value="Submit"  name="register" onclick="test()" class="btn" />
                
              
                         <!-- <div id="console"> -->

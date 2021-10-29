@@ -37,26 +37,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 
-
-
-
- <!-- if (isset($_POST['email_check'])) {
-    $email = $_POST['email'];
-    $sql = "SELECT * FROM users WHERE email='$email'";
-    $results = mysqli_query($user, $sql);
-    if (mysqli_num_rows($results) > 0) {
-       echo "taken";	
-   echo 'not_taken';
-    }
-      exit();
-   } 
-
-    mysqli_select_db("user") ;
-   $username = $_REQUEST['username'];
-  $query=mysqli_query("SELECT * from user where name='$username'");
-   $row=mysqli_num_rows($query);
-   if(row==1){
-      echo "true";
-} else {
-      echo "false";
-  } -->
