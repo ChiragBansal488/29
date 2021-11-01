@@ -12,9 +12,12 @@ include 'action2.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  
+    <title>login page</title>
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <script src="javascriptcode.js"></script>
     <script src="generalclass.js"></script>
+    <script src="userlength.js"></script>
     <link rel="stylesheet" href="style.css">
 
   
@@ -56,8 +59,7 @@ include 'action2.php';
                         <input type="button" value="Submit"  name="register" onclick="test()" class="btn" />
                
              
-                        <!-- <div id="console"> -->
-                           
+                        <div id="console">
                         
                     </td>
                 </tr>

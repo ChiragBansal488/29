@@ -5,15 +5,15 @@
 
 function test() {
     try {
-      username();
+      blank();
     } catch (error) {
         document.getElementById('console').innerHTML =
             "<h3 style='color:red'> Error: </h3>" + error.message;
     }
 }
 
-// Global variable.
-function username() {
+
+function blank() {
     let username = document.getElementById("usrname").value;
    
        
@@ -21,10 +21,13 @@ function username() {
         
          alert("Please Enter Username First");
         throw new Error('Username can not be Empty.');
+    
        }
+       
     else
     {
-        valid() 
+      userlength() 
+      
     }
 
 }

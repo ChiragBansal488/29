@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 // echo "Connected successfully";
 include 'insert.php';
 ?>
-<-- Html code-->
+<-- Html code--> 
 
 <!DOCTYPE html>
 <html lang="en">
