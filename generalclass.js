@@ -2,7 +2,7 @@
 
 
 
-/////////////////vshdfvbhdsgvd/////////////////
+
 function test() {
     try {
       blank();

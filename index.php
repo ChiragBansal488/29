@@ -56,7 +56,7 @@ include 'action2.php';
 
 
                         </form>
-                        <input type="button" value="Submit"  name="register" onclick="test()" class="btn" />
+                        <input type="button" value="Submit" onclick="test()"  name="register"  id="btn" />
                
              
                         <div id="console">
@@ -65,6 +65,21 @@ include 'action2.php';
                 </tr>
             </table>
         </div>
+        <script>
+             var el = document.getElementById("usrname");
+    el.addEventListener("keypress", function(event) {
+      if (event.key === 'Enter') {
+        if(el.value==''){
+        alert("Please Enter Username First");
+          event.preventDefault();
+          return false;
+      }
+      else {
+      return test()
+      } }
+     
+    });
+        </script>
       
 
 </body>

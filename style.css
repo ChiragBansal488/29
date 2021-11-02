@@ -53,3 +53,10 @@ a {
 
     background-color: green;
 }
+
+input:disabled {
+    background: gainsboro;
+  }
+  input[value]:disabled {
+    color: whitesmoke;
+  }
