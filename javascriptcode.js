@@ -18,11 +18,12 @@ function valid()
     
    
     var Username = document.getElementById("usrname").value; 
-    //  var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{1,4})+$/; //REGULAR EXPRESSION
+
+  
    
  if (Username.search(/[0-9]/) == -1) 
 {
-    // var valid =true;
+
     alert("Please enter one numeric value");
     throw  new Error("Please enter one numeric value");
  
@@ -37,7 +38,7 @@ else if (Username.search(/[A-Z]/) == -1)
 }
 else if (Username.search(/[a-z]/) == -1)
 {
-// valid =false;
+
   alert("Please enter one small Letter");
     throw  new Error ("Please enter one Small Letter");
 
