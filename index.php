@@ -16,8 +16,7 @@ include 'action2.php';
     <title>login page</title>
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <script src="javascriptcode.js"></script>
-    <script src="generalclass.js"></script>
-    <script src="userlength.js"></script>
+  
     <link rel="stylesheet" href="style.css">
 
   
@@ -56,7 +55,7 @@ include 'action2.php';
 
 
                         </form>
-                        <input type="button" value="Submit" onclick="test()"  name="register"  id="btn" />
+                        <input type="button" value="Submit" onclick="validation()"  name="register"  id="btn" />
                
              
                         <div id="console">
@@ -65,7 +64,7 @@ include 'action2.php';
                 </tr>
             </table>
         </div>
-        <script>
+        <!-- <script>
              var el = document.getElementById("usrname");
     el.addEventListener("keypress", function(event) {
       if (event.key === 'Enter') {
@@ -79,7 +78,7 @@ include 'action2.php';
       } }
      
     });
-        </script>
+        </script> -->
       
 
 </body>

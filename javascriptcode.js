@@ -1,10 +1,9 @@
-
-
+// <-----------------MAIN FUNCTION-------------------->
 function validation()
 {
 try
-{
-    valid();
+{    blank()
+    valid()
 }
 catch(error)
 {
@@ -13,6 +12,21 @@ catch(error)
 }
 }
 
+// <------------------------BLANK VALIDATE--------------------------->
+
+function blank() {
+    let username = document.getElementById("usrname").value;
+   
+       
+     if (username== "") {
+        
+         alert("Please Enter Username First");
+        throw new Error('Username can not be Empty.');
+    
+       }
+       return true;
+    }
+// <-------------------OTHER VALIDATION----------------------->
 function valid()
 {
     
@@ -50,6 +64,7 @@ else{
   
 document.getElementById('usrname').innerHTML = "<h3 style='color:green'> Your username is: </h3>" + Username;
 document.getElementById("file").submit();
+return true;
 
 }
 }
