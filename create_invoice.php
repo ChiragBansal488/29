@@ -20,7 +20,7 @@
       <div class="load-animate animated fadeInUp">
          <div class="row">
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-               <h2 class="title">PHP Invoice System</h2>
+               <h2 class="title"> Invoice System</h2>
                <?php include('menu.php');?> 
             </div>
          </div>

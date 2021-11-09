@@ -38,7 +38,7 @@ background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Ch
 background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 ">	
 	<div class="demo-heading">
-		<h2 class="text-white text-center">Simple Invoice System</h2>
+		<h2 class="text-white text-center">Invoice System</h2>
 	</div>
 	<div class="login-form">		
 		<h4>User Login:</h4>		
@@ -57,10 +57,14 @@ background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+
 			<div class="form-group">
 				<button type="submit" name="login" class="btn btn-success">Login</button>
 			</div>
+			<p>
+                    Not a member ?
+                    <a href="reg.php" class="to_register"> Go and register. </a>
+                </p>
 		</form>
 		<br>
-		 <!-- <p><b>Email</b> : demo@demo.com<br><b>Password</b> : pass</p>		 -->
+	
 	</div>		
 </div>		
 </div>
-<?php include('footer.php');?>
+<!-- <?php include('footer.php');?> -->
