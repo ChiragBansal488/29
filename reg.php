@@ -13,12 +13,17 @@
             if(!$emailid){
                 $phone = $funObj->validating($phonenum);
                 if($phone){
+                    $passCheck = $funObj->pass_Check($password);
+                    if($passCheck){
                 $register = $funObj->UserRegister($username, $email, $password, $phonenum,$address);  
                 if($register){  
                     echo "Registration Successfully done!!!";
                 }else{  
                     echo "Registration Not Successful!!!"; 
                     }
+            }else{
+                echo "Password contain one special character,one capital letter and not less than 5!!!";
+           } 
                 }else{
                     echo "Enter Valid Phone Num!!!";
                     }
