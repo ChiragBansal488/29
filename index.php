@@ -10,7 +10,7 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 		$_SESSION['email'] = $user[0]['email'];		
 		$_SESSION['address'] = $user[0]['address'];
 		$_SESSION['mobile'] = $user[0]['mobile'];
-		header("Location:invoice_list.php");
+		header("Location:invoice_list.php? 'Welcome to invoice system");
 	} else {
 		echo "Invalid email or password!!!";
 	}
