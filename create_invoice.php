@@ -3,14 +3,15 @@ session_start();
 include('inc/header.php');
 include_once('messg.php');  
 include_once('dbFunction.php'); 
+include_once('displayMsg.php');
 $invoice = new Invoice();
 $funObj1 = new messages();
 $invoice->checkLoggedIn();
-if(!empty($_POST['invoice_btn'])) {	
+if(!empty($_POST['companyName']) && ($_POST['companyName'])) {	
 	$invoice->saveInvoice($_POST);
-	echo $funObj1->success('Saved Successfully!!!');
+	echo $success11;
 }else{
-	echo $funObj1->info('Please do not forget to enter reciver name and its address!!!');
+	echo $info;
 }
 ?>
 <title>Create invoice:- Invoice System</title>
