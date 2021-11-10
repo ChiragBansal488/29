@@ -3,6 +3,7 @@ session_start();
 if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 	include_once('dbFunction.php'); 
     include_once('messg.php'); 
+    include_once('displayMsg.php');
 	$invoice = new Invoice();
     $funObj1 = new messages();
 	$user = $invoice->loginUsers($_POST['email'], $_POST['pwd']); 
@@ -14,7 +15,7 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 		$_SESSION['mobile'] = $user[0]['mobile'];
 		header("Location:invoice_list.php? 'Welcome to invoice system");
 	} else {
-        echo $funObj1->error('Invalid email or password!!!');
+        echo $error21;
 	}
 }
 ?>
