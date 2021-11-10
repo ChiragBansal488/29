@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'Invoice.php';
+include_once('dbFunction.php'); 
 $invoice = new Invoice();
 $invoice->checkLoggedIn();
 if(!empty($_GET['invoice_id']) && $_GET['invoice_id']) {
@@ -82,7 +82,7 @@ Dompdf\Autoloader::register();
 use Dompdf\Dompdf;
 $dompdf = new Dompdf();
 $dompdf->loadHtml(html_entity_decode($output));
-$dompdf->setPaper('A4', 'landscape');
+$dompdf->setPaper('A5', 'landscape');
 $dompdf->render();
 $dompdf->stream($invoiceFileName, array("Attachment" => false));
 ?>   

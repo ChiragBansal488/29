@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
-	include 'Invoice.php';
+	include_once('dbFunction.php'); 
     include_once('messg.php'); 
 	$invoice = new Invoice();
     $funObj1 = new messages();

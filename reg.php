@@ -1,7 +1,7 @@
 <?php  
-    include_once('invoice.php'); 
     include_once('messg.php'); 
     include_once('gen.php');
+    include_once('dbFunction.php'); 
      $funObj = new Invoice(); 
      $funObj1 = new messages();
      $funObj2 = new general();
@@ -31,7 +31,7 @@
                 }else{
                     echo $funObj1->error('Enter Valid Phone Num!!!');
                     }
-                } else {  
+                }else {  
                      echo $funObj1->error('This email is already taken!!!');
                     }  
          } else{

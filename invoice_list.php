@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include('inc/header.php');
-include 'Invoice.php';
+include_once('dbFunction.php'); 
 $invoice = new Invoice();
 $invoice->checkLoggedIn();
 ?>

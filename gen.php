@@ -1,5 +1,5 @@
 <?php
- include_once('invoice.php'); 
+ include_once('dbFunction.php'); 
 class general{
     public function pass_Check($password){
 		$passLenght = 5;

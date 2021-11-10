@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include('inc/header.php');
-include 'Invoice.php';
+include_once('dbFunction.php'); 
 $invoice = new Invoice();
 $invoice->checkLoggedIn();
 if(!empty($_POST['companyName']) && $_POST['companyName'] && !empty($_POST['invoiceId']) && $_POST['invoiceId']) {	
@@ -16,7 +16,6 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 <title>Viku Invoice System</title>
 <script src="js/invoice.js"></script>
 <link href="style.css" rel="stylesheet">
-
 <div class="container content-invoice">
     	<form action="" id="invoice-form" method="post"  role="form" novalidate=""> 
 	    	<div class="load-animate animated fadeInUp">

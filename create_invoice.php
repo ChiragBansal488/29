@@ -2,17 +2,17 @@
 session_start();
 include('inc/header.php');
 include_once('messg.php');  
-include 'Invoice.php';
+include_once('dbFunction.php'); 
 $invoice = new Invoice();
 $funObj1 = new messages();
 $invoice->checkLoggedIn();
-if(!empty($_POST['companyName']) && $_POST['companyName']) {	
+if(!empty($_POST['invoice_btn'])) {	
 	$invoice->saveInvoice($_POST);
 	echo $funObj1->success('Saved Successfully!!!');
-	//header("Location:invoice_list.php");	
-} 
+}else{
+	echo $funObj1->info('Please do not forget to enter reciver name and its address!!!');
+}
 ?>
-
 <title>Create invoice:- Invoice System</title>
 <script src="js/invoice.js"></script>
 <link href="style.css" rel="stylesheet">
