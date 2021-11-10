@@ -39,16 +39,6 @@
 	$(document).on('blur', "#taxRate", function(){		
 		calculateTotal();
 	});	
-	// $(document).on('blur', "#amountPaid", function(){
-	// 	var amountPaid = $(this).val();
-	// 	var totalAftertax = $('#totalAftertax').val();	
-	// 	if(amountPaid && totalAftertax) {
-	// 		totalAftertax = totalAftertax-amountPaid;			
-	// 		$('#amountDue').val(totalAftertax);
-	// 	} else {
-	// 		$('#amountDue').val(totalAftertax);
-	// 	}	
-	// });	
 	$(document).on('click', '.deleteInvoice', function(){
 		var id = $(this).attr("id");
 		if(confirm("Are you sure you want to remove this?")){
@@ -92,12 +82,6 @@ function calculateTotal(){
 		$('#totalAftertax').val(subTotal);		
 		var amountPaid = $('#amountPaid').val();
 		var totalAftertax = $('#totalAftertax').val();	
-		// if(amountPaid && totalAftertax) {
-		// 	totalAftertax = totalAftertax-amountPaid;			
-		// 	$('#amountDue').val(totalAftertax);
-		// } else {		
-		// 	$('#amountDue').val(subTotal);
-		// }
 	}
 }
 

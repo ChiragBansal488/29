@@ -1,14 +1,16 @@
 <?php 
 session_start();
 include('inc/header.php');
+include_once('messg.php');  
 include 'Invoice.php';
 $invoice = new Invoice();
+$funObj1 = new messages();
 $invoice->checkLoggedIn();
 if(!empty($_POST['companyName']) && $_POST['companyName']) {	
 	$invoice->saveInvoice($_POST);
-	echo "Saved Successfully";
+	echo $funObj1->success('Saved Successfully!!!');
 	//header("Location:invoice_list.php");	
-}
+} 
 ?>
 
 <title>Create invoice:- Invoice System</title>
@@ -19,7 +21,7 @@ if(!empty($_POST['companyName']) && $_POST['companyName']) {
 		<div class="load-animate animated fadeInUp">
 			<div class="row">
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-					<h2 class="title">Invoice System</h2>
+					<h2 class="title">Viku Invoice System</h2>
 					<li class="list-group-item list-group-item-light navbar-text navbar-right">Logged in <?php echo $_SESSION['user']; ?></li>
 					<?php include('menu.php');?>	
 				</div>		    		

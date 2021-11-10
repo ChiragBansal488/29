@@ -7,8 +7,6 @@
 
 <?php 
 if($_SESSION['userid']) { ?>
-	
-		
 			<li><a href="action.php?action=logout">Logout</a></li>		  
 			
 <?php } ?>

@@ -1,37 +1,41 @@
 <?php  
-    include_once('invoice.php');  
+    include_once('invoice.php'); 
+    include_once('messg.php'); 
+    include_once('gen.php');
      $funObj = new Invoice(); 
+     $funObj1 = new messages();
+     $funObj2 = new general();
     if(!empty($_POST['register'])){  
         $username = $_POST['first_name']; 
         $phonenum = $_POST['mobile']; 
         $email = $_POST['email'];  
         $password = $_POST['password'];  
         $address = $_POST['address'];   
-        $empty = $funObj->emptyField($username,$email, $password, $phonenum,$address);
+        $empty = $funObj2->emptyField($username,$email, $password, $phonenum,$address);
         if($empty){
             $emailid = $funObj->isUserExist($email);  
             if(!$emailid){
-                $phone = $funObj->validating($phonenum);
+                $phone = $funObj2->validating($phonenum);
                 if($phone){
-                    $passCheck = $funObj->pass_Check($password);
+                    $passCheck = $funObj2->pass_Check($password);
                     if($passCheck){
                 $register = $funObj->UserRegister($username, $email, $password, $phonenum,$address);  
                 if($register){  
-                    echo "Registration Successfully done!!!";
+                    echo $funObj1->success('Registration Successfully done!!!');
                 }else{  
-                    echo "Registration Not Successful!!!"; 
+                    echo $funObj1->error('Registration Not Successful!!!'); 
                     }
             }else{
-                echo "Password contain one special character,one capital letter and not less than 5!!!";
+                echo $funObj1->error('Password contain one special character,one capital letter and not less than 5!!!');
            } 
                 }else{
-                    echo "Enter Valid Phone Num!!!";
+                    echo $funObj1->error('Enter Valid Phone Num!!!');
                     }
                 } else {  
-                     echo "This email is already taken!!!";  
+                     echo $funObj1->error('This email is already taken!!!');
                     }  
          } else{
-             echo "Enter all the fields carefully";
+             echo $funObj1->error('Enter all the fields carefully');
          }
     }
 ?>
@@ -46,7 +50,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <!-- <script src="https://kit.fontawesome.com/9940f932ad.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="style.css">
 </head>
 

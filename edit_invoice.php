@@ -7,7 +7,6 @@ $invoice->checkLoggedIn();
 if(!empty($_POST['companyName']) && $_POST['companyName'] && !empty($_POST['invoiceId']) && $_POST['invoiceId']) {	
 	$invoice->updateInvoice($_POST);	
 	header("Location:invoice_list.php? echo 'Updated-Succesfully!!!'");
-
 }
 if(!empty($_GET['update_id']) && $_GET['update_id']) {
 	$invoiceValues = $invoice->getInvoice($_GET['update_id']);		
@@ -23,7 +22,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 	    	<div class="load-animate animated fadeInUp">
 		    	<div class="row">
 		    		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-		    			<h1 class="title">Invoice System</h1>
+		    			<h1 class="title">Viku Invoice System</h1>
 						<li class="list-group-item list-group-item-light navbar-text navbar-right">Logged in <?php echo $_SESSION['user']; ?></li>
 						<?php include('menu.php');?>			
 		    		</div>		    		
