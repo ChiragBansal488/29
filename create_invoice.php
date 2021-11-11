@@ -7,7 +7,7 @@ include_once('displayMsg.php');
 $invoice = new Invoice();
 $funObj1 = new messages();
 $invoice->checkLoggedIn();
-if(!empty($_POST['companyName']) && ($_POST['companyName'])) {	
+if(!empty($_POST['companyName']) && ($_POST['address'])) {	
 	$invoice->saveInvoice($_POST);
 	echo $success11;
 }else{
@@ -39,12 +39,11 @@ if(!empty($_POST['companyName']) && ($_POST['companyName'])) {
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pull-right">
 					<h3>To,</h3>
 					<div class="form-group">
-						<input type="text" class="form-control" name="companyName" id="companyName" placeholder="Name" autocomplete="off">
+						<input type="text" class="form-control"  onkeypress="return /[a-z]/i.test(event.key)" name="companyName" id="companyName" placeholder="Name" autocomplete="off">
 					</div>
 					<div class="form-group">
 						<textarea class="form-control" rows="3" name="address" id="address" placeholder="Your Address"></textarea>
 					</div>
-					
 				</div>
 			</div>
 			<div class="row">
@@ -55,16 +54,16 @@ if(!empty($_POST['companyName']) && ($_POST['companyName'])) {
 							<th width="15%">Item No</th>
 							<th width="38%">Item Name</th>
 							<th width="15%">Quantity</th>
-							<th width="15%">Price</th>								
+							<th width="15%">Price</th>												
 							<th width="15%">Total</th>
 						</tr>							
 						<tr>
 							<td><input class="itemRow" type="checkbox"></td>
-							<td><input type="text" name="productCode[]" id="productCode_1" class="form-control" autocomplete="off"></td>
-							<td><input type="text" name="productName[]" id="productName_1" class="form-control" autocomplete="off"></td>			
-							<td><input type="number" name="quantity[]" id="quantity_1" class="form-control quantity" autocomplete="off"></td>
-							<td><input type="number" name="price[]" id="price_1" class="form-control price" autocomplete="off"></td>
-							<td><input type="number" name="total[]" id="total_1" class="form-control total" autocomplete="off"></td>
+							<td><input type="number" id ="prd" name="productCode[]" id="productCode_1" class="form-control" autocomplete="off" required></td>
+							<td><input type="text" name="productName[]" onkeypress="return /[a-z]/i.test(event.key)" id="productName_1" class="form-control" autocomplete="off" required></td>			
+							<td><input type="number" name="quantity[]" id="quantity_1" maxlength="2" pattern="^0[1-9]|[1-9]\d$" class="form-control quantity" autocomplete="off" required></td>
+							<td><input type="number" name="price[]" id="price_1" class="form-control price" autocomplete="off" required></td>
+							<td><input name="total[]" id="total_1" class="form-control total" autocomplete="off" readonly required></td>
 						</tr>						
 					</table>
 				</div>

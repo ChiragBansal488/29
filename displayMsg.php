@@ -9,7 +9,7 @@ $funObj1 = new messages();
 $error1 = $funObj1->error('Please enter all the fields carefully!!!');
 $error3 = $funObj1->error('This email is already taken!!!');
 $error4 = $funObj1->error('Enter Valid Phone Num!!!');
-$error5 = $funObj1->error('Password contain one special character,one capital letter and not less than 5!!!');
+$error5 = $funObj1->error('Password contain one special character,one capital letter and more than 5!!!');
 $error6 = $funObj1->error('Registration Not Successful!!!');
 $success1 = $funObj1->success('Registration Successfully done!!!');
 

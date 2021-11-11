@@ -17,9 +17,9 @@
 		htmlRows += '<td><input class="itemRow" type="checkbox"></td>';          
 		htmlRows += '<td><input type="text" name="productCode[]" id="productCode_'+count+'" class="form-control" autocomplete="off"></td>';          
 		htmlRows += '<td><input type="text" name="productName[]" id="productName_'+count+'" class="form-control" autocomplete="off"></td>';	
-		htmlRows += '<td><input type="number" name="quantity[]" id="quantity_'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
+		htmlRows += '<td><input type="number" name="quantity[]"pattern="^0[1-9]|[1-9]\d$" id="quantity_'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
 		htmlRows += '<td><input type="number" name="price[]" id="price_'+count+'" class="form-control price" autocomplete="off"></td>';		 
-		htmlRows += '<td><input type="number" name="total[]" id="total_'+count+'" class="form-control total" autocomplete="off"></td>';          
+		htmlRows += '<td><input type="number" name="total[]" id="total_'+count+'" class="form-control total" autocomplete="off" readonly></td>';          
 		htmlRows += '</tr>';
 		$('#invoiceItem').append(htmlRows);
 	}); 
@@ -58,6 +58,7 @@
 		}
 	});
 });	
+// Calculate 
 function calculateTotal(){
 	var totalAmount = 0; 
 	$("[id^='price_']").each(function() {
@@ -69,20 +70,55 @@ function calculateTotal(){
 			quantity = 1;
 		}
 		var total = price*quantity;
-		$('#total_'+id).val(parseFloat(total));
+		$('#total_'+id).val(parseFloat(total).toFixed(2));
 		totalAmount += total;			
 	});
-	$('#subTotal').val(parseFloat(totalAmount));	
+	//totle after tax adding
+	$('#subTotal').val(parseFloat(totalAmount).toFixed(2));	
 	var taxRate = $("#taxRate").val();
 	var subTotal = $('#subTotal').val();	
 	if(subTotal) {
 		var taxAmount = subTotal*taxRate/100;
-		$('#taxAmount').val(taxAmount);
-		subTotal = parseFloat(subTotal)+parseFloat(taxAmount);
-		$('#totalAftertax').val(subTotal);		
+		var n = parseFloat(taxAmount).toFixed(2);
+		$('#taxAmount').val(n);
+		subTotal = parseFloat(subTotal)+parseFloat(n);
+		$('#totalAftertax').val(subTotal).toFixed(2);		
 		var amountPaid = $('#amountPaid').val();
 		var totalAftertax = $('#totalAftertax').val();	
 	}
 }
 
+// This function is used for length 
+//for quantity length check
+$(document).ready(function() {
+	$("#quantity_1,#prd").keypress(function(e) {
+	  var length = this.value.length;
+	  if (length >= 2) {
+		e.preventDefault();
+		alert("Not allow more than 2 character");
+	  }
+	});
+
+	$("#price_1,#productName_1").keypress(function(e) {
+		var length = this.value.length;
+		if (length >= 10) {
+		  e.preventDefault();
+		  alert("Not allow more than 10 character");
+		}
+	  });
+	  $("#companyName").keypress(function(e) {
+		var length = this.value.length;
+		if (length >= 20) {
+		  e.preventDefault();
+		  alert("Not allow more than 20 character");
+		}
+	  });
+	  $("#address").keypress(function(e) {
+		var length = this.value.length;
+		if (length >= 50) {
+		  e.preventDefault();
+		  alert("You have cross the limit");
+		}
+	  });
+  });
  
