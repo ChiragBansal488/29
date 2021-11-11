@@ -18,7 +18,7 @@ $(document).ready(function(){
 		htmlRows += '<td><input type="text" name="productCode[]" id="productCode_'+count+'" class="form-control" autocomplete="off"></td>';          
 		htmlRows += '<td><input type="text" name="productName[]" id="productName_'+count+'" class="form-control" autocomplete="off"></td>';	
 		htmlRows += '<td><input type="number" name="quantity[]" id="quantity_'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
-		htmlRows += '<td><input type="number" name="price[]" id="price_'+count+'" class="form-control price" autocomplete="off"></td>';		 
+		htmlRows += '<td><input type="number" name="price[]" id="price_'+count+'" pattern="[0-9]+(\.[0-9]{1,2})" class="form-control price" autocomplete="off"></td>';		 
 		htmlRows += '<td><input type="number" name="total[]" id="total_'+count+'" class="form-control total" autocomplete="off"></td>';          
 		htmlRows += '</tr>';
 		$('#invoiceItem').append(htmlRows);
@@ -34,8 +34,10 @@ $(document).ready(function(){
 		calculateTotal();
 	});	
 	$(document).on('blur', "[id^=price_]", function(){
+		var a = $('#price_'+count).val();
+		$('#price_'+count).val(parseFloat(a).toFixed(2));
 		calculateTotal();
-	});	
+	});		
 	$(document).on('blur', "#taxRate", function(){		
 		calculateTotal();
 	});	
@@ -79,10 +81,10 @@ function calculateTotal(){
 			quantity = 1;
 		}
 		var total = price*quantity;
-		$('#total_'+id).val(parseFloat(total));
+		$('#total_'+id).val(parseFloat(total).toFixed(2));
 		totalAmount += total;			
 	});
-	$('#subTotal').val(parseFloat(totalAmount));	
+	$('#subTotal').val(parseFloat(totalAmount).toFixed(2));	
 	var taxRate = $("#taxRate").val();
 	var subTotal = $('#subTotal').val();	
 	if(subTotal) {

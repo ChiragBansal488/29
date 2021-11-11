@@ -23,7 +23,7 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 <title>Invoice System</title>
 <script src="js/invoice.js"></script>
 <link rel="stylesheet" href="style2.css">
-<script src="reg_validation.js"></script>
+<!-- <script src="reg_validation.js"></script> -->
 
 <style type="text/css">
 	.form-control {
