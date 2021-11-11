@@ -1,23 +1,51 @@
 <?php  
-    include_once('invoice.php');  
+
+    include_once('invoice.php');
+    include_once('dispMsg.php'); 
      $funObj = new Invoice(); 
+     $funObj1 = new messages();
     if(!empty($_POST['register'])){  
         $username = $_POST['first_name']; 
         $phonenum = $_POST['mobile']; 
         $email = $_POST['email'];  
         $password = $_POST['password'];  
         $address = $_POST['address'];   
-        
+        $empty = $funObj->emptyField($username,$email, $password, $phonenum,$address);
+        if($empty){
+            $emailid = $funObj->isUserExist($email);  
+            if(!$emailid){
+                $phone = $funObj->validating($phonenum);
+                if($phone){
+                    $passCheck = $funObj->pass_Check($password);
+                    if($passCheck){
                 $register = $funObj->UserRegister($username, $email, $password, $phonenum,$address);  
                 if($register){  
-                    echo "Registration Successfully done!!!";
+                    echo $funObj1->success('Registration  Successful!!!');
+                    echo "<script> window.location.assign('index.php'); </script>";
+                   
                 }else{  
-                    echo "Registration Not Successful!!!"; 
+                    echo $funObj1->error('Registration Not Successful!!!');
+                   
                     }
-
+            }else{
+                echo $funObj1->error('Password contain one special character,one capital letter and not less than 6!!!');
+              
+           } 
+                }else{
+                    echo $funObj1->error('Enter Valid Phone Number!!');
+              
+                    }
+                } else {  
+                    echo $funObj1->error('This email is already taken');
+            
+                    }  
+         } else{
+            echo $funObj1->error('Please fill the detail carefully');
+            
+         }
     }
+ 
 ?>
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -51,7 +79,7 @@
                             <label for="emailsignup" data-icon="e"> Your email</label>
                             <input class="form-control" id="emailsignup" name="email" type="email"
                                 placeholder="Abc@gmail.com" />
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                            <div id="emailHelp" class="form-text">
                             </div>
                         </div>
                         <div class="form-group">
@@ -72,15 +100,20 @@
 
                 <button type="submit" name="register" value="Sign up" class="btn btn-outline-primary bttn">Sign
                     up</button>
-                <p>
-                    Already a member ?
-                    <a href="index.php" class="to_register"> Go and log in </a>
-                </p>
+       
+              
                 </form>
+                <p>
+                    <br>
+                    <a href="index2.php" class="to_register"> login  </a>
+              
+                </form>
+                </p>
+  
             </div>
         </section>
     </div>
-
+  
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

@@ -21,7 +21,7 @@ class Invoice{
 	private function getData($sqlQuery) {
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
 		if(!$result){
-			die('Error in query: '. mysqli_error());
+			die('Error in query: ');
 		}
 		$data= array();
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -37,17 +37,41 @@ class Invoice{
 		$numRows = mysqli_num_rows($result);
 		return $numRows;
 	}
-	public function UserRegister($username, $email, $password, $phonenum,$address){   
-		$qr = mysqli_query($this->dbConnect,"INSERT INTO invoice_user(first_name, email, password, mobile,address) values('".$username."','".$email."','".$password."','".$phonenum."','".$address."')");  
-		return $qr;   
-}  
+// 	public function UserRegister($username,$lastname,$email, $password, $phonenum,$address,$city){   
+// 		$qr = mysqli_query($this->dbConnect,"INSERT INTO invoice_user(first_name,last_name,email, password, mobile,address,city) values('".$username."','".$lastname."','".$email."','".$password."','".$phonenum."','".$address."','".$city."')");  
+// 		return $qr;   
+// }  
 	public function loginUsers($email, $password){
 		$sqlQuery = "
-			SELECT id, email, first_name, last_name, address, mobile 
+			SELECT id, email, first_name, address, mobile 
 			FROM ".$this->invoiceUserTable." 
 			WHERE email='".$email."' AND password='".$password."'";
         return  $this->getData($sqlQuery);
-	}	
+	}
+
+
+	public function checkDublicacy($username,$email, $password, $phonenum,$address)
+	{
+		$sql="SELECT * FROM ".$this->invoiceUserTable." WHERE email='$email'";
+		$res_u = mysqli_query($this->dbConnect, $sql);
+		if (mysqli_num_rows($res_u) > 0) {
+			echo '<script>
+			  alert("username already exist");
+			  window.location="r.php";
+		  </script>';
+		  exit();
+		}
+		else {
+			$qr = mysqli_query($this->dbConnect,"INSERT INTO invoice_user(first_name,email, password, mobile,address) values('".$username."','".$email."','".$password."','".$phonenum."','".$address."')"); 
+			echo '<script>
+		    window.location="index2.php";
+			</script>';
+			return $qr;
+		}	
+			  
+	}
+	
+	
 	public function checkLoggedIn(){
 		if(!$_SESSION['userid']) {
 			header("Location:index.php");

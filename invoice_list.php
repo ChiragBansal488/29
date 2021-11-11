@@ -8,16 +8,16 @@ $invoice->checkLoggedIn();
 <title>Invoice System</title>
 <script src="js/invoice.js"></script>
 <link href="css/style.css" rel="stylesheet">
-<?php include('container.php');?>
+
 	<div class="container">		
-	  <h2 class="title mt-5">PHP Invoice System</h2>
+	  <h2 class="title mt-5"> Invoice System</h2>
 	  <?php include('menu.php');?>			  
       <table id="data-table" class="table table-condensed table-hover table-striped">
         <thead>
           <tr>
             <th>Invoice No.</th>
             <th>Customer Name</th>
-            <th>Create Date</th>
+            <th>Create Date and time</th>
             <th>Total</th>
             <th>Print</th>
             <th>Edit</th>

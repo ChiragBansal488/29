@@ -23,11 +23,13 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 <title>Invoice System</title>
 <script src="js/invoice.js"></script>
 <link rel="stylesheet" href="style2.css">
+<script src="reg_validation.js"></script>
 
 <style type="text/css">
 	.form-control {
+     
     height: 26px;
-    border-radius: 26px;
+    border-radius: 16px;
     border: none;
     padding-left: 1.5rem;
     padding-right: 0.5rem;
@@ -37,23 +39,26 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 </style>
 
 	<div class="login-form">		
-		<h4> Login page:</h4>		
+		<h1> Login page:</h1>		
+     
 		<form method="post" action="">
 			<div class="form-group">
 		
 			</div>
-			<div class="form-group">
-				<input name="email" id="email" type="email" class="form-control" placeholder="Email"  required>
+			<div id="form-group">
+				<input name="email" id="email" type="email" id="form-control" placeholder="Email"  required>
 			</div>
-			<div class="form-group">
-				<input type="password" class="form-control" name="pwd" placeholder="Password"  required>
+            <br>
+			<div id="form-group">
+				<input type="password" id="form-control" name="pwd" placeholder="Password"  required>
 			</div>  
+            <br>
 			<div class="form-group">
 				<button type="submit" name="login" class="btn btn-success">Login</button>
 			</div>
 			<p>
                    
-                    <a href="reg.php" class="to_register"> New register. </a>
+                    <a href="r.php" class="to_register"> New register. </a>
                 </p>
 		</form>
 		<br>
@@ -63,3 +68,5 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 </div>		
 </div>
 <?php include('footer.php');?>
+
+

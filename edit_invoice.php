@@ -133,29 +133,13 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 								</div>
 							</div>
 							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-							<div class="form-group">
-								<label>Amount Paid: &nbsp;</label>
-								<div class="input-group">
-									<div class="input-group-append currency"><span class="input-group-text">$</span></div>
-									<input value="<?php echo $invoiceValues['order_amount_paid']; ?>" type="number" class="form-control" name="amountPaid" id="amountPaid" placeholder="Amount Paid">
-								</div>
+						
 							</div>
 							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-							<div class="form-group">
-								<label>Amount Due: &nbsp;</label>
-								<div class="input-group">
-									<div class="input-group-append currency"><span class="input-group-text">$</span></div>
-									<input value="<?php echo $invoiceValues['order_total_amount_due']; ?>" type="number" class="form-control" name="amountDue" id="amountDue" placeholder="Amount Due">
-								</div>
+							
 							</div>
 							</div>
-		     		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-		      			<h3>Notes: </h3>
-		      			<div class="form-group">
-							<textarea class="form-control txt" rows="5" name="notes" id="notes" placeholder="Your Notes"><?php echo $invoiceValues['note']; ?></textarea>
-						</div>
+		    
 						<br>
 						<div class="form-group">
 							<input type="hidden" value="<?php echo $_SESSION['userid']; ?>" class="form-control" name="userId">

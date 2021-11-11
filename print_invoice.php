@@ -71,13 +71,8 @@ $output .= '
 	<td align="left">'.$invoiceValues['order_total_after_tax'].'</td>
 	</tr>
 	<tr>
-	<td align="right" colspan="5">Amount Paid:</td>
-	<td align="left">'.$invoiceValues['order_amount_paid'].'</td>
-	</tr>
-	<tr>
-	<td align="right" colspan="5"><b>Amount Due:</b></td>
-	<td align="left">'.$invoiceValues['order_total_amount_due'].'</td>
-	</tr>';
+	'
+	;
 $output .= '
 	</table>
 	</td>
