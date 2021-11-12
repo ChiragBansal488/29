@@ -37,10 +37,7 @@ class Invoice{
 		$numRows = mysqli_num_rows($result);
 		return $numRows;
 	}
-// 	public function UserRegister($username,$lastname,$email, $password, $phonenum,$address,$city){   
-// 		$qr = mysqli_query($this->dbConnect,"INSERT INTO invoice_user(first_name,last_name,email, password, mobile,address,city) values('".$username."','".$lastname."','".$email."','".$password."','".$phonenum."','".$address."','".$city."')");  
-// 		return $qr;   
-// }  
+
 	public function loginUsers($email, $password){
 		$sqlQuery = "
 			SELECT id, email, first_name, address, mobile 

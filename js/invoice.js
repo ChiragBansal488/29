@@ -89,8 +89,9 @@ function calculateTotal(){
 	var subTotal = $('#subTotal').val();	
 	if(subTotal) {
 		var taxAmount = subTotal*taxRate/100;
-		$('#taxAmount').val(taxAmount);
-		subTotal = parseFloat(subTotal)+parseFloat(taxAmount);
+		var n = parseFloat(taxAmount).toFixed(2);
+		$('#taxAmount').val(n);
+		subTotal = parseFloat(subTotal)+parseFloat(n);
 		$('#totalAftertax').val(subTotal);		
 		var amountPaid = $('#amountPaid').val();
 		var totalAftertax = $('#totalAftertax').val();	
@@ -119,31 +120,31 @@ function calculateTotal(){
 $(document).ready(function() {
 	$("#quantity_1,#prd").keypress(function(e) {
 	  var length = this.value.length;
-	  if (length >= 2) {
+	  if (length >= 10) {
 		e.preventDefault();
-		alert("Not allow more than 2 character");
+		alert("Not allow more than 10 character");
 	  }
 	});
 
 	$("#price_1,#productName_1").keypress(function(e) {
-		var length = this.value.length;
-		if (length >= 10) {
-		  e.preventDefault();
-		  alert("Not allow more than 10 character");
-		}
-	  });
-	  $("#companyName").keypress(function(e) {
 		var length = this.value.length;
 		if (length >= 20) {
 		  e.preventDefault();
 		  alert("Not allow more than 20 character");
 		}
 	  });
+	  $("#companyName").keypress(function(e) {
+		var length = this.value.length;
+		if (length >= 40) {
+		  e.preventDefault();
+		  alert("Not allow more than 40 character");
+		}
+	  });
 	  $("#address").keypress(function(e) {
 		var length = this.value.length;
 		if (length >= 50) {
 		  e.preventDefault();
-		  alert("You have cross the limit");
+		  alert("You Limit is over ");
 		}
 	  });
   });

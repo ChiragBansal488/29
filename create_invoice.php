@@ -67,7 +67,7 @@
                      <td><input type="text" id="prd" onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');" name="productCode[]" id="productCode_1" class="form-control" autocomplete="off"></td>
                      <td><input type="text" onkeypress="return /[a-z]/i.test(event.key)" name="productName[]" id="productName_1" class="form-control" autocomplete="off"></td>
                      <td><input type="number" onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');" name="quantity[]" id="quantity_1" class="form-control quantity" autocomplete="off"></td>
-                     <td><input type="number" name="price[]" id="price_1" class="form-control price" autocomplete="off"></td>
+                     <td><input type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" name="price[]" id="price_1" class="form-control price" autocomplete="off"></td>
                      <td><input type="number" name="total[]" id="total_1" class="form-control total" autocomplete="off" readonly></td>
                   </tr>
                </table>

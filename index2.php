@@ -46,7 +46,7 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 		
 			</div>
 			<div id="form-group">
-				<input name="email" id="email" type="email" id="form-control" placeholder="Email"  required>
+				<input name="email" style="text-transform:lowercase" id="email" type="email" id="form-control" placeholder="Email"  required>
 			</div>
             <br>
 			<div id="form-group">
