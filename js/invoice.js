@@ -115,3 +115,35 @@ function calculateTotal(){
     return this; //for chaining
  });
 });
+
+$(document).ready(function() {
+	$("#quantity_1,#prd").keypress(function(e) {
+	  var length = this.value.length;
+	  if (length >= 2) {
+		e.preventDefault();
+		alert("Not allow more than 2 character");
+	  }
+	});
+
+	$("#price_1,#productName_1").keypress(function(e) {
+		var length = this.value.length;
+		if (length >= 10) {
+		  e.preventDefault();
+		  alert("Not allow more than 10 character");
+		}
+	  });
+	  $("#companyName").keypress(function(e) {
+		var length = this.value.length;
+		if (length >= 20) {
+		  e.preventDefault();
+		  alert("Not allow more than 20 character");
+		}
+	  });
+	  $("#address").keypress(function(e) {
+		var length = this.value.length;
+		if (length >= 50) {
+		  e.preventDefault();
+		  alert("You have cross the limit");
+		}
+	  });
+  });

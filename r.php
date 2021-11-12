@@ -1,22 +1,4 @@
-<?php  
-    include_once('invoice.php');  
-    //  $funObj = new Invoice(); 
-     $funObjj = new Invoice(); 
-    if(!empty($_POST['register'])){  
-        $username = $_POST['first_name']; 
-      
-        $phonenum = $_POST['mobile']; 
-        $email = $_POST['email'];  
-        $password = $_POST['password'];  
-        $address = $_POST['address'];  
-        
-        
-       $email = $funObjj-> checkDublicacy($username,$email, $password, $phonenum,$address); 
-     
-      
-    
-}
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,21 +10,21 @@
 </head>
  
 <body >
- <div class="contaier" id="console">
-<form name="login"  action="" method="post">
+ <div class="contaier" id="console" >
+<form name="login"  action="reg_login.php" method="post">
 <h2>Registration Form</h2>
  
 <label  >Your Name :</label>
-<input type="text"id="fn" name="first_name" ><br/>
+<input type="text" id="fn" name="first_name" ><br/>
 <br>
 <label  >Email :</label>
 <input type="text"  placeholder="Abc@gmail.com" name="email" id="em" required ><br/>
 <br>
 <label >Address :</label>
-<input type="password"   placeholder="address with pin code" / name="address" id="add" required><br/>
+<input type="password"   name="address" id="add" required><br/>
 <br>
 <label   >Mobile No :</label>
-<input type="number" placeholder="eg. phone number"id="mn" name="mobile"required ><br/>
+<input type="number" id="mn" name="mobile"required ><br/>
  <br>
 <label  >Password :</label>
 <input type="password" id="pwd" placeholder="eg. Abc@1" name="password" ><br/>
@@ -54,10 +36,11 @@
     <a href="index2.php" class="to_register"> Go and log in </a>
 </p>
 </div>
+
  
 </form>
 
-  
+
  
 </body>
 </html>

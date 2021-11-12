@@ -33,7 +33,7 @@ $invoice->checkLoggedIn();
                 <td>'.$invoiceDetails["order_id"].'</td>
                 <td>'.$invoiceDetails["order_receiver_name"].'</td>
                 <td>'.$invoiceDate.'</td>
-                <td>$'.$invoiceDetails["order_total_after_tax"].'</td>
+                <td>(₹)'.$invoiceDetails["order_total_after_tax"].'</td>
                 <td><a href="print_invoice.php?invoice_id='.$invoiceDetails["order_id"].'" title="Print Invoice"><button class="btn btn-primary btn-sm"><i class="fa fa-print"></i></button></a></td>
                 <td><a href="edit_invoice.php?update_id='.$invoiceDetails["order_id"].'"  title="Edit Invoice"><button class="btn btn-success btn-sm"><i class="fa fa-edit"></i></button></a></td>
                 <td><a href="delete-invoice.php?order_id='.$invoiceDetails['order_id'].'" title="Delete Invoice"><button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></a></td>

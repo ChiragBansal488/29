@@ -16,7 +16,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 <title>Invoice System</title>
 <script src="js/invoice.js"></script>
 <link href="css/style.css" rel="stylesheet">
-<?php include('container.php');?>
+
 <div class="container content-invoice">
     	<div class="cards">
     		<div class="card-bodys">
@@ -24,7 +24,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 	    	<div class="load-animate animated fadeInUp">
 		    	<div class="row">
 		    		<div class="col-xs-12">
-		    			<h1 class="title">PHP Invoice System</h1>
+		    			<h1 class="title"> Invoice System</h1>
 						<?php include('menu.php');?>			
 		    		</div>		    		
 		    	</div>
@@ -89,7 +89,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 		      	<div class="row mt-3 mb-3">
 		      		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 		      			<button class="btn btn-danger delete" id="removeRows" type="button">- Delete</button>
-		      			<button class="btn btn-primary border-0" id="addRows" type="button">+ Add More</button>
+		      			<button class="btn btn-primary border-0" id="addRows" type="button">+ Add Rows</button>
 		      		</div>
 		      	</div>
 		      	<div class="row">	
@@ -98,7 +98,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 								<label>Subtotal: &nbsp;</label>
 								<div class="input-group">
 									<div class="input-group-prepend currency">
-										<span class="input-group-text currency">$</span>
+										<span class="input-group-text currency">(₹)</span>
 									</div>
 									<input value="<?php echo $invoiceValues['order_total_before_tax']; ?>" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal">
 								</div>
@@ -119,7 +119,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 							<div class="form-group">
 								<label>Tax Amount: &nbsp;</label>
 								<div class="input-group">
-									<div class="input-group-append currency"><span class="input-group-text">$</span></div>
+									<div class="input-group-append currency"><span class="input-group-text">(₹)</span></div>
 									<input value="<?php echo $invoiceValues['order_total_tax']; ?>" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount">
 								</div>
 							</div>	
@@ -128,7 +128,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 							<div class="form-group">
 								<label>Total: &nbsp;</label>
 								<div class="input-group">
-									<div class="input-group-append currency"><span class="input-group-text">$</span></div>
+									<div class="input-group-append currency"><span class="input-group-text">(₹)</span></div>
 									<input value="<?php echo $invoiceValues['order_total_after_tax']; ?>" type="number" class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total">
 								</div>
 							</div>

@@ -1,6 +1,6 @@
 function valid() {
     try{
-        verify_Null()
+        blank()
         validation_Name()
         EmailValidation()
         PhoneValidation()
@@ -19,7 +19,7 @@ function valid() {
 }
 //<------------------Blank Validation----------------->//
 
-function verify_Null(){
+function blank(){
 
     var isValid = true;
     if(!document.getElementById('fn').value.trim().length){

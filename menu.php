@@ -4,7 +4,9 @@
 	<span class="caret"></span></button>
 	
 		<li><a class="" href="invoice_list.php">Invoice List</a></li>
-		<li><a class="" href="create_invoice.php">Create Invoice</a></li>				  
+		<br>
+		<li><a class="" href="create_invoice.php">Create Invoice</a></li>	
+		<br>			  
 	
 </li>
 <?php 
@@ -15,6 +17,7 @@ if($_SESSION['userid']) { ?>
 		
 			
 			<li><a class="" href="action.php?action=logout">Logout</a></li>	
+			<br>
 			<br>
 			Login username is: <?php echo $_SESSION['user']; ?>	  
 		

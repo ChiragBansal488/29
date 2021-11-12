@@ -8,7 +8,7 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 	$invoice = new Invoice();
 	$user = $invoice->loginUsers($_POST['email'], $_POST['pwd']); 
 	if(!empty($user)) {
-		$_SESSION['user'] = $user[0]['first_name']."".$user[0]['last_name'];
+		$_SESSION['user'] = $user[0]['first_name'];
 		$_SESSION['userid'] = $user[0]['id'];
 		$_SESSION['email'] = $user[0]['email'];		
 		$_SESSION['address'] = $user[0]['address'];
@@ -23,7 +23,7 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 <title>Invoice System</title>
 <script src="js/invoice.js"></script>
 <link rel="stylesheet" href="style2.css">
-<!-- <script src="reg_validation.js"></script> -->
+
 
 <style type="text/css">
 	.form-control {
