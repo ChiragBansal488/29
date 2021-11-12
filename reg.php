@@ -67,29 +67,29 @@
                         <div class="form-group">
                             <label for="usernamesignup" data-icon="u">First name</label>
                             <input class="form-control" id="usernamesignup" name="first_name" type="text"
-                                placeholder="Viku123" />
+                                placeholder="Viku123" style="text-transform:lowercase" required/>
                         </div>
                         <div class="form-group">
                             <label for="emailsignup" data-icon="e"> Your email</label>
                             <input class="form-control" id="emailsignup" name="email" type="email"
-                                placeholder="Abc@gmail.com" />
+                                placeholder="Abc@gmail.com" style="text-transform:lowercase" required/>
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="emailsignup" data-icon="e">Address</label>
                             <input class="form-control" id="addresssignup" name="address" type="text"
-                                placeholder="Mention your area with pin code" />
+                                placeholder="Mention your area with pin code" required/>
                         </div>
                 </div>
                 <div class="form-group">
                     <label for="PhoneNum" data-icon="p">Phone Number</label>
-                    <input class="form-control" id="phonenum" name="mobile" type="number" placeholder="eg.9973462210" />
+                    <input class="form-control" id="phonenum" name="mobile" type="number" placeholder="eg.9973462210" required/>
                 </div>
                 <div class="form-group">
                     <label for="passwordsignup" data-icon="p">Your password </label>
                     <input class="form-control" id="passwordsignup" name="password" type="password"
-                        placeholder="eg. Abc@1" />
+                        placeholder="eg. Abc@1" required/>
                 </div>
 
                 <button type="submit" name="register" value="Sign up" class="btn btn-outline-primary bttn">Sign

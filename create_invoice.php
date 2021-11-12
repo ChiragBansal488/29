@@ -39,7 +39,7 @@ if(!empty($_POST['companyName']) && ($_POST['address'])) {
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pull-right">
 					<h3>To,</h3>
 					<div class="form-group">
-						<input type="text" class="form-control"  onkeypress="return /[a-z]/i.test(event.key)" name="companyName" id="companyName" placeholder="Name" autocomplete="off">
+						<input type="text" class="form-control" onkeypress="return /[a-z]/i.test(event.key)" name="companyName" id="companyName" placeholder="Name" autocomplete="off">
 					</div>
 					<div class="form-group">
 						<textarea class="form-control" rows="3" name="address" id="address" placeholder="Your Address"></textarea>
@@ -59,9 +59,9 @@ if(!empty($_POST['companyName']) && ($_POST['address'])) {
 						</tr>							
 						<tr>
 							<td><input class="itemRow" type="checkbox"></td>
-							<td><input type="number" id ="prd" name="productCode[]" id="productCode_1" class="form-control" autocomplete="off" required></td>
+							<td><input type="number" onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');" id ="prd" name="productCode[]" id="productCode_1" class="form-control" autocomplete="off" required></td>
 							<td><input type="text" name="productName[]" onkeypress="return /[a-z]/i.test(event.key)" id="productName_1" class="form-control" autocomplete="off" required></td>			
-							<td><input type="number" name="quantity[]" id="quantity_1" maxlength="2" pattern="^0[1-9]|[1-9]\d$" class="form-control quantity" autocomplete="off" required></td>
+							<td><input type="number" onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');" name="quantity[]" id="quantity_1" maxlength="2" pattern="^0[1-9]|[1-9]\d$" class="form-control quantity" autocomplete="off" required></td>
 							<td><input type="number" name="price[]" id="price_1" class="form-control price" autocomplete="off" required></td>
 							<td><input name="total[]" id="total_1" class="form-control total" autocomplete="off" readonly required></td>
 						</tr>						
@@ -89,7 +89,7 @@ if(!empty($_POST['companyName']) && ($_POST['address'])) {
 							<label>Subtotal: &nbsp;</label>
 							<div class="input-group">
 								<div class="input-group-addon currency">₹</div>
-								<input value="" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal">
+								<input value="" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal" readonly>
 							</div>
 						</div>
 						<div class="form-group">
@@ -110,7 +110,7 @@ if(!empty($_POST['companyName']) && ($_POST['address'])) {
 							<label>Total: &nbsp;</label>
 							<div class="input-group">
 								<div class="input-group-addon currency">₹</div>
-								<input value="" type="number" class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total">
+								<input value="" type="number" class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total" readonly>
 							</div>
 						</div>
 					</span>

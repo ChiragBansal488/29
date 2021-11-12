@@ -11,17 +11,18 @@
 	});  
 	var count = $(".itemRow").length;
 	$(document).on('click', '#addRows', function() { 
+		var newRow = $("#invoiceItem");
 		count++;
 		var htmlRows = '';
 		htmlRows += '<tr>';
 		htmlRows += '<td><input class="itemRow" type="checkbox"></td>';          
 		htmlRows += '<td><input type="text" name="productCode[]" id="productCode_'+count+'" class="form-control" autocomplete="off"></td>';          
 		htmlRows += '<td><input type="text" name="productName[]" id="productName_'+count+'" class="form-control" autocomplete="off"></td>';	
-		htmlRows += '<td><input type="number" name="quantity[]"pattern="^0[1-9]|[1-9]\d$" id="quantity_'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
+		htmlRows += '<td><input type="number" name="quantity[]" id="quantity_'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
 		htmlRows += '<td><input type="number" name="price[]" id="price_'+count+'" class="form-control price" autocomplete="off"></td>';		 
 		htmlRows += '<td><input type="number" name="total[]" id="total_'+count+'" class="form-control total" autocomplete="off" readonly></td>';          
 		htmlRows += '</tr>';
-		$('#invoiceItem').append(htmlRows);
+		newRow.append(htmlRows);
 	}); 
 	$(document).on('click', '#removeRows', function(){
 		$(".itemRow:checked").each(function() {
@@ -87,7 +88,6 @@ function calculateTotal(){
 		var totalAftertax = $('#totalAftertax').val();	
 	}
 }
-
 // This function is used for length 
 //for quantity length check
 $(document).ready(function() {
@@ -99,23 +99,24 @@ $(document).ready(function() {
 	  }
 	});
 
-	$("#price_1,#productName_1").keypress(function(e) {
+	$("#price_1").keypress(function(e) {
 		var length = this.value.length;
 		if (length >= 10) {
 		  e.preventDefault();
 		  alert("Not allow more than 10 character");
 		}
 	  });
-	  $("#companyName").keypress(function(e) {
-		var length = this.value.length;
-		if (length >= 20) {
-		  e.preventDefault();
-		  alert("Not allow more than 20 character");
-		}
-	  });
-	  $("#address").keypress(function(e) {
+	  $("#companyName,#productName_1").keypress(function(e) {
 		var length = this.value.length;
 		if (length >= 50) {
+		  e.preventDefault();
+		  alert("Not allowed more than 50 character");
+		}
+	  });
+
+	  $("#address").keypress(function(e) {
+		var length = this.value.length;
+		if (length >= 150) {
 		  e.preventDefault();
 		  alert("You have cross the limit");
 		}
