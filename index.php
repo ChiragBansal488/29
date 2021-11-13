@@ -29,12 +29,12 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+   
+    <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
-    <div class="container ol-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4 css">
+    <div class="container">
 
         <!-- <h2>Login here</h2> -->
         <div class="login-form">

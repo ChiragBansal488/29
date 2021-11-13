@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include('inc/header.php');
-include_once('dbFunction.php'); 
+include_once('invoice.php'); 
 $invoice = new Invoice();
 $invoice->checkLoggedIn();
 ?>
@@ -9,8 +9,8 @@ $invoice->checkLoggedIn();
 <script src="js/invoice.js"></script>
 <link href="style.css" rel="stylesheet">
 	<div class="container">		
-	  <h2 class="title">Viku Invoice System</h2>
-    <li class="list-group-item list-group-item-light navbar-text navbar-right">Logged in <?php echo $_SESSION['user']; ?></li>
+	  <h2 class="title"> Invoice System</h2>
+    <li class="">Logged in <?php echo $_SESSION['user']; ?></li>
 	  <?php include('menu.php');?>			  
       <table id="data-table" class="table table-condensed table-striped">
         <thead>

@@ -2,8 +2,7 @@
     
 </div>
 </div>
-<footer class="text-center">
-        <small>Copyright © <?php echo date("Y"); ?> Viku. All rights reserved.</small>
+
     </footer>
 </body>
 

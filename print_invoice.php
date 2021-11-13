@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('dbFunction.php'); 
+include_once('invoice.php'); 
 $invoice = new Invoice();
 $invoice->checkLoggedIn();
 if(!empty($_GET['invoice_id']) && $_GET['invoice_id']) {
@@ -12,7 +12,7 @@ $invoiceDate = date("d/M/Y, H:i:s", strtotime($invoiceValues['order_date']));
 $output = '';
 $output .= '<table width="100%" border="1" cellpadding="5" cellspacing="0">
 	<tr>
-	<td colspan="2" align="center" style="font-size:18px"><b>Viku Invoice</b></td>
+	<td colspan="2" align="center" style="font-size:18px"><b> Invoice</b></td>
 	</tr>
 	<tr>
 	<td colspan="2">

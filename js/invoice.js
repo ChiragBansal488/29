@@ -1,4 +1,4 @@
- $(document).ready(function(){
+$(document).ready(function(){
 	$(document).on('click', '#checkAll', function() {          	
 		$(".itemRow").prop("checked", this.checked);
 	});	
@@ -11,18 +11,17 @@
 	});  
 	var count = $(".itemRow").length;
 	$(document).on('click', '#addRows', function() { 
-		var newRow = $("#invoiceItem");
 		count++;
 		var htmlRows = '';
 		htmlRows += '<tr>';
-		htmlRows += '<td><input class="itemRow" type="checkbox"></td>';          
+		htmlRows += '<td><div class="custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input itemRow" id="itemRow_'+count+'"> <label class="custom-control-label" for="itemRow_'+count+'"></label> </div></td>';          
 		htmlRows += '<td><input type="text" name="productCode[]" id="productCode_'+count+'" class="form-control" autocomplete="off"></td>';          
 		htmlRows += '<td><input type="text" name="productName[]" id="productName_'+count+'" class="form-control" autocomplete="off"></td>';	
 		htmlRows += '<td><input type="number" name="quantity[]" id="quantity_'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
-		htmlRows += '<td><input type="number" name="price[]" id="price_'+count+'" class="form-control price" autocomplete="off"></td>';		 
-		htmlRows += '<td><input type="number" name="total[]" id="total_'+count+'" class="form-control total" autocomplete="off" readonly></td>';          
+		htmlRows += '<td><input type="number" name="price[]" id="price_'+count+'" pattern="[0-9]+(\.[0-9]{1,2})" class="form-control price" autocomplete="off"></td>';		 
+		htmlRows += '<td><input type="number" name="total[]" id="total_'+count+'" class="form-control total" autocomplete="off"></td>';          
 		htmlRows += '</tr>';
-		newRow.append(htmlRows);
+		$('#invoiceItem').append(htmlRows);
 	}); 
 	$(document).on('click', '#removeRows', function(){
 		$(".itemRow:checked").each(function() {
@@ -35,10 +34,22 @@
 		calculateTotal();
 	});	
 	$(document).on('blur', "[id^=price_]", function(){
+		var a = $('#price_'+count).val();
+		$('#price_'+count).val(parseFloat(a).toFixed(2));
 		calculateTotal();
-	});	
+	});		
 	$(document).on('blur', "#taxRate", function(){		
 		calculateTotal();
+	});	
+	$(document).on('blur', "#amountPaid", function(){
+		var amountPaid = $(this).val();
+		var totalAftertax = $('#totalAftertax').val();	
+		if(amountPaid && totalAftertax) {
+			totalAftertax = totalAftertax-amountPaid;			
+			$('#amountDue').val(totalAftertax);
+		} else {
+			$('#amountDue').val(totalAftertax);
+		}	
 	});	
 	$(document).on('click', '.deleteInvoice', function(){
 		var id = $(this).attr("id");
@@ -59,7 +70,6 @@
 		}
 	});
 });	
-// Calculate 
 function calculateTotal(){
 	var totalAmount = 0; 
 	$("[id^='price_']").each(function() {
@@ -74,7 +84,6 @@ function calculateTotal(){
 		$('#total_'+id).val(parseFloat(total).toFixed(2));
 		totalAmount += total;			
 	});
-	//totle after tax adding
 	$('#subTotal').val(parseFloat(totalAmount).toFixed(2));	
 	var taxRate = $("#taxRate").val();
 	var subTotal = $('#subTotal').val();	
@@ -83,42 +92,59 @@ function calculateTotal(){
 		var n = parseFloat(taxAmount).toFixed(2);
 		$('#taxAmount').val(n);
 		subTotal = parseFloat(subTotal)+parseFloat(n);
-		$('#totalAftertax').val(subTotal).toFixed(2);		
+		$('#totalAftertax').val(subTotal);		
 		var amountPaid = $('#amountPaid').val();
 		var totalAftertax = $('#totalAftertax').val();	
+		if(amountPaid && totalAftertax) {
+			totalAftertax = totalAftertax-amountPaid;			
+			$('#amountDue').val(totalAftertax);
+		} else {		
+			$('#amountDue').val(subTotal);
+		}
 	}
 }
-// This function is used for length 
-//for quantity length check
+
+
+ $( function() {
+ $('.two-digits').keyup(function(){
+   if($(this).val().indexOf('.')!=-1){         
+       if($(this).val().split(".")[1].length > 2){                
+           if( isNaN( parseFloat( this.value ) ) ) return;
+           this.value = parseFloat(this.value).toFixed(2);
+       }  
+    }            
+    return this; //for chaining
+ });
+});
+
 $(document).ready(function() {
 	$("#quantity_1,#prd").keypress(function(e) {
 	  var length = this.value.length;
-	  if (length >= 3) {
+	  if (length >= 10) {
 		e.preventDefault();
-		alert("Not allow more than 3 character");
+		alert("Not allow more than 10 character");
 	  }
 	});
 
-	$("#price_1").keypress(function(e) {
+	$("#price_1,#productName_1").keypress(function(e) {
 		var length = this.value.length;
-		if (length >= 10) {
+		if (length >= 20) {
 		  e.preventDefault();
-		  alert("Not allow more than 10 character");
+		  alert("Not allow more than 20 character");
 		}
 	  });
-	  $("#companyName,#productName_1").keypress(function(e) {
+	  $("#companyName").keypress(function(e) {
+		var length = this.value.length;
+		if (length >= 40) {
+		  e.preventDefault();
+		  alert("Not allow more than 40 character");
+		}
+	  });
+	  $("#address").keypress(function(e) {
 		var length = this.value.length;
 		if (length >= 50) {
 		  e.preventDefault();
-		  alert("Not allowed more than 50 character");
-		}
-	  });
-
-	  $("#address").keypress(function(e) {
-		var length = this.value.length;
-		if (length >= 150) {
-		  e.preventDefault();
-		  alert("You have cross the limit");
+		  alert("You Limit is over ");
 		}
 	  });
   });

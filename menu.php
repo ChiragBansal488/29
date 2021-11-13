@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav">
+<ul class="">
 
 	
 		<li><a href="invoice_list.php">Invoice List</a></li>

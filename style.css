@@ -231,22 +231,4 @@ margin: 0;
 		padding-left:9%;
 	}
 }
-.login-form {
-    background-image: url("images/backing.jpg");
-    background-size: cover;
-    padding: 20px;
-}
-.reg{
-    background-image: url("images/back.jpg");
-    background-size: cover;
-}
 
-.title{
-    background-color: gray;
-    height:80px;
-    width:80vw;
-    
-    color:white;
-    padding-top: 20px;
-    padding-left: 12px;
-}
