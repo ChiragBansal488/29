@@ -1,0 +1,59 @@
+
+body {
+    color: #40514E;
+    margin: 0;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 100%;
+    background-color: blanchedalmond;
+
+}
+
+h1 {
+    color: #66BFBF;
+    font: size 562.5rem;
+    margin: 50px auto 0 auto;
+    font-family: 'Montserrat', sans-serif;
+
+
+}
+
+h2 {
+    color: #66BFBF;
+    font-family: 'Sacramento', cursive;
+    font-size: 2.5rem;
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #11999E;
+    font-family: 'Sacramento', cursive;
+}
+
+p {
+    line-height: 2;
+}
+
+hr {
+    border: dotted #EAF6F6 6px;
+    border-bottom: none;
+    width: 4pc;
+    margin: 100px auto;
+}
+
+a {
+    color: #11999E;
+    font-family: 'Montserrat', sans-serif;
+    margin: 10px 20px;
+    text-decoration: none;
+}
+
+#submit:hover {
+
+    background-color: green;
+}
+
+
+
+ 
