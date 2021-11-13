@@ -7,12 +7,18 @@ include_once('displayMsg.php');
 $invoice = new Invoice();
 $funObj1 = new messages();
 $invoice->checkLoggedIn();
-if(!empty($_POST['companyName']) && ($_POST['address'])) {	
-	$invoice->saveInvoice($_POST);
-	echo $success11;
-}else{
+if(!empty($_POST['invoice_btn']))
+{  
+	if(!empty($_POST['companyName']) && ($_POST['address'])) 
+	{	
+		$invoice->saveInvoice($_POST);
+		echo $success11;
+    }else {
+	        echo $create_invoice_error;
+          }
+}	else{
 	echo $info;
-}
+	}
 ?>
 <title>Create invoice:- Invoice System</title>
 <script src="js/invoice.js"></script>
@@ -39,7 +45,7 @@ if(!empty($_POST['companyName']) && ($_POST['address'])) {
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pull-right">
 					<h3>To,</h3>
 					<div class="form-group">
-						<input type="text" class="form-control" onkeypress="return /[a-z]/i.test(event.key)" name="companyName" id="companyName" placeholder="Name" autocomplete="off">
+						<input type="text" class="form-control" onkeypress="return /[a-z]/i.test(event.key)" name="companyName" id="companyName" placeholder="Receiver Name" autocomplete="off">
 					</div>
 					<div class="form-group">
 						<textarea class="form-control" rows="3" name="address" id="address" placeholder="Your Address"></textarea>
@@ -81,7 +87,6 @@ if(!empty($_POST['companyName']) && ($_POST['address'])) {
 						<input type="hidden" value="<?php echo $_SESSION['userid']; ?>" class="form-control" name="userId">
 						<input data-loading-text="Saving Invoice..." type="submit" name="invoice_btn" value="Save Invoice" class="btn btn-success">						
 					</div>
-					
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 					<span class="form-inline">
@@ -103,7 +108,7 @@ if(!empty($_POST['companyName']) && ($_POST['address'])) {
 							<label>Tax Amount: &nbsp;</label>
 							<div class="input-group">
 								<div class="input-group-addon currency">₹</div>
-								<input value="" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount">
+								<input value="" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount" readonly>
 							</div>
 						</div>							
 						<div class="form-group">

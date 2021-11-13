@@ -64,7 +64,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 							?>								
 							<tr>
 								<td><input class="itemRow" type="checkbox"></td>
-								<td><input type="text" value="<?php echo $invoiceItem["item_code"]; ?>" name="productCode[]" id="productCode_<?php echo $count; ?>" class="form-control" autocomplete="off"></td>
+								<td><input type="text" id="prd" value="<?php echo $invoiceItem["item_code"]; ?>" onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');"  name="productCode[]" id="productCode_<?php echo $count; ?>" class="form-control" autocomplete="off"></td>
 								<td><input type="text" value="<?php echo $invoiceItem["item_name"]; ?>" name="productName[]" id="productName_<?php echo $count; ?>" class="form-control" autocomplete="off"></td>			
 								<td><input type="number" value="<?php echo $invoiceItem["order_item_quantity"]; ?>" name="quantity[]" id="quantity_<?php echo $count; ?>" class="form-control quantity" autocomplete="off"></td>
 								<td><input type="number" value="<?php echo $invoiceItem["order_item_price"]; ?>" name="price[]" id="price_<?php echo $count; ?>" class="form-control price" autocomplete="off"></td>
@@ -96,7 +96,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 								<label>Subtotal: &nbsp;</label>
 								<div class="input-group">
 									<div class="input-group-addon currency">$</div>
-									<input value="<?php echo $invoiceValues['order_total_before_tax']; ?>" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal">
+									<input value="<?php echo $invoiceValues['order_total_before_tax']; ?>" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal" readonly>
 								</div>
 							</div>
 							<div class="form-group">
@@ -110,14 +110,14 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 								<label>Tax Amount: &nbsp;</label>
 								<div class="input-group">
 									<div class="input-group-addon currency">$</div>
-									<input value="<?php echo $invoiceValues['order_total_tax']; ?>" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount">
+									<input value="<?php echo $invoiceValues['order_total_tax']; ?>" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount" readonly>
 								</div>
 							</div>							
 							<div class="form-group">
 								<label>Total: &nbsp;</label>
 								<div class="input-group">
 									<div class="input-group-addon currency">$</div>
-									<input value="<?php echo $invoiceValues['order_total_after_tax']; ?>" type="number" class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total">
+									<input value="<?php echo $invoiceValues['order_total_after_tax']; ?>" type="number" class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total" readonly>
 								</div>
 							</div>
 						</span>
@@ -128,4 +128,36 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 		</form>			
     </div>
 </div>	
+<script>
+	$("#quantity_,#prd").keypress(function(e) {
+	  var length = this.value.length;
+	  if (length >= 3) {
+		e.preventDefault();
+		alert("Not allow more than 3 character");
+	  }
+	});
+
+	$("#price_").keypress(function(e) {
+		var length = this.value.length;
+		if (length >= 10) {
+		  e.preventDefault();
+		  alert("Not allow more than 10 character");
+		}
+	  });
+	 $("#companyName,#productName_").keypress(function(e) {
+		var length = this.value.length;
+		if (length >= 50) {
+		  e.preventDefault();
+		  alert("Not allowed more than 50 character");
+		}
+	  });
+
+	  $("#address").keypress(function(e) {
+		var length = this.value.length;
+		if (length >= 150) {
+		  e.preventDefault();
+		  alert("You have cross the limit");
+		}
+	  });
+</script>
 <?php include('inc/footer.php');?>

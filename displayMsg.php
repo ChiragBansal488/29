@@ -13,13 +13,16 @@ $error5 = $funObj1->error('Password contain one special character,one capital le
 $error6 = $funObj1->error('Registration Not Successful!!!');
 $success1 = $funObj1->success('Registration Successfully done!!!');
 
+
 //This is Login page  message
 $error21 = $funObj1->error('Invalid email or password!!!');
 
 //Create_invoice page 
 $success11 =  $funObj1->success('Saved Successfully!!!');
 //information Section of Create_invoice page
-$info = $funObj1->info('Please do not forget to enter reciver name and its address!!!');
+$info = $funObj1->info('Enter all Fields carefully!!');
 
+//invoice create error
+$create_invoice_error = $funObj1->warning('Please do not forget to enter reciver name and its address!!!');
 
 ?>

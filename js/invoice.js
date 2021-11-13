@@ -93,9 +93,9 @@ function calculateTotal(){
 $(document).ready(function() {
 	$("#quantity_1,#prd").keypress(function(e) {
 	  var length = this.value.length;
-	  if (length >= 2) {
+	  if (length >= 3) {
 		e.preventDefault();
-		alert("Not allow more than 2 character");
+		alert("Not allow more than 3 character");
 	  }
 	});
 
@@ -122,4 +122,3 @@ $(document).ready(function() {
 		}
 	  });
   });
- 

@@ -41,7 +41,7 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
             <h4>Invoice User Login</h4>
             <form method="post" action="">
                 <div class="form-group">
-                    <input name="email" id="email" type="email" class="form-control" placeholder="Email address"
+                    <input name="email" id="email" style="text-transform:lowercase" type="email" class="form-control" placeholder="Email address"
                         autofocus="" required>
                 </div>
                 <div class="form-group">
