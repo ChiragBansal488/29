@@ -1,19 +1,26 @@
+
 <?php 
 session_start();
 include('inc/header.php');
 include_once('messg.php');  
 include_once('invoice.php'); 
 include_once('displayMsg.php');
-
-
-
-   $invoice = new Invoice();
-   $invoice->checkLoggedIn();
-   if(!empty($_POST['companyName']) && $_POST['companyName']) {	
-   	$invoice->saveInvoice($_POST);
-   	header("Location:invoice_list.php");	
-   }
-   ?>
+$invoice = new Invoice();
+$funObj1 = new messages();
+$invoice->checkLoggedIn();
+if(!empty($_POST['invoice_btn']))
+{  
+	if(!empty($_POST['companyName']) && ($_POST['address'])) 
+	{	
+		$invoice->saveInvoice($_POST);
+		echo $success11;
+    }else {
+	        echo $create_invoice_error;
+          }
+}	else{
+	echo $info;
+	}
+?>
 <title>Invoice System</title>
 <script src="js/invoice.js"></script>
 <link href="css/style.css" rel="stylesheet">
@@ -41,7 +48,7 @@ include_once('displayMsg.php');
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                <h3>To,</h3>
                <div class="form-group">
-                  <input type="text" class="form-control" onkeypress="return /[a-z]/i.test(event.key)" name="companyName" id="companyName" placeholder="Company Name" autocomplete="off">
+                  <input type="text" onkeypress="return /[a-z]/i.test(event.key)" class="form-control" name="companyName" id="companyName" placeholder="Company Name" autocomplete="off">
                </div>
                <div class="form-group">
                   <textarea class="form-control" rows="3" name="address" id="address" placeholder="Your Address"></textarea>
@@ -69,11 +76,14 @@ include_once('displayMsg.php');
                         <input type="checkbox" class="itemRow custom-control-input" id="itemRow_1">
                         <label class="custom-control-label" for="itemRow_1"></label>
                         </div></td>
-                     <td><input type="text" id="prd" onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');" name="productCode[]" id="productCode_1" class="form-control" autocomplete="off"></td>
+                     <td><input type="text" onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');" name="productCode[]" id="productCode_1" class="form-control" autocomplete="off"></td>
+                     
                      <td><input type="text" onkeypress="return /[a-z]/i.test(event.key)" name="productName[]" id="productName_1" class="form-control" autocomplete="off"></td>
-                     <td><input type="number" onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');" name="quantity[]" id="quantity_1" class="form-control quantity" autocomplete="off"></td>
-                     <td><input type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" name="price[]" id="price_1" class="form-control price" autocomplete="off"></td>
-                     <td><input type="number" name="total[]" id="total_1" class="form-control total" autocomplete="off" readonly></td>
+
+                     <td><input type="number" onkeydown="if(event.key==='.'){event.preventDefault();}"  oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');" name="quantity[]" id="quantity_1" class="form-control quantity" autocomplete="off" ></td>
+
+                     <td><input type="number" name="price[]" id="price_1" class="form-control price" autocomplete="off" placeholder="Rs."></td>
+                     <td><input type="number" name="total[]" id="total_1" class="form-control total" autocomplete="off" placeholder="Rs." readonly></td>
                   </tr>
                </table>
             </div>
@@ -90,7 +100,7 @@ include_once('displayMsg.php');
               <label>Subtotal: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text currency">(₹)</span>
+              <span class="input-group-text currency">Rs.</span>
             </div>
             <input value="" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal">
           </div>
@@ -112,7 +122,7 @@ include_once('displayMsg.php');
               <label>Tax Amount: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text currency">(₹)</span>
+              <span class="input-group-text currency">Rs.</span>
             </div>
             <input value="" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount">
           </div>
@@ -123,7 +133,7 @@ include_once('displayMsg.php');
               <label>Total: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text currency">(₹)</span>
+              <span class="input-group-text currency">Rs.</span>
             </div>
              <input value="" type="number" class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total">
           </div>
@@ -138,7 +148,7 @@ include_once('displayMsg.php');
                <br>
                <div class="form-group">
                   <input type="hidden" value="<?php echo $_SESSION['userid']; ?>" class="form-control" name="userId">
-                  <input data-loading-text="Saving Invoice..." type="submit" name="invoice_btn" value="Save Invoice" class="btn btn-success submit_btn invoice-save-btm">           
+                  <input data-loading-text="Saving Invoice..." type="submit" name="invoice_btn" value="Save Invoice" class="btn btn-success submit_btn invoice-save-btm"id="create_invoice">           
                </div>
             </div>
          </div>
@@ -148,5 +158,4 @@ include_once('displayMsg.php');
      </div>
    </div>
 </div>
-</div>	
-
+</div>        

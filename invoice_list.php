@@ -10,7 +10,7 @@ $invoice->checkLoggedIn();
 <link href="style.css" rel="stylesheet">
 	<div class="container">		
 	  <h2 class="title"> Invoice System</h2>
-    <li class="">Logged in <?php echo $_SESSION['user']; ?></li>
+    <li class="list-group-item list-group-item-light navbar-text navbar-right">Logged in <?php echo $_SESSION['user']; ?></li>
 	  <?php include('menu.php');?>			  
       <table id="data-table" class="table table-condensed table-striped">
         <thead>
@@ -43,4 +43,3 @@ $invoice->checkLoggedIn();
         ?>
       </table>	
 </div>	
-<?php include('inc/footer.php');?>
