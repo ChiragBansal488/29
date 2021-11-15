@@ -58,7 +58,7 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 			</div>
 			<p>
                    
-                    <a href="r.php" class="to_register"> New register. </a>
+                    <a href="registration.php" class="to_register"> New register. </a>
                 </p>
 		</form>
 		<br>

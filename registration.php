@@ -21,7 +21,7 @@
 <input type="text" style="text-transform:lowercase" placeholder="Abc@gmail.com" name="email" id="em" required ><br/>
 <br>
 <label >Address :</label>
-<input type="password"   name="address" id="add" required><br/>
+<input type="text"   name="address" id="add" required><br/>
 <br>
 <label   >Mobile No :</label>
 <input type="number" id="mn" name="mobile"required ><br/>
@@ -33,7 +33,7 @@
 <button type="submit" value="Submit" name="register" id="button" onclick="valid()" >Register</button>  
 <p>
   
-    <a href="index2.php" class="to_register"> Go and log in </a>
+    <a href="index.php" class="to_register"> Go and log in </a>
 </p>
 </div>
 

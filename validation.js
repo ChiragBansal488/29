@@ -41,7 +41,7 @@ function validation_Name()
 
 
     if ((user.length < 5) || (user.length > 15)) {
-        alert("Please fill the length");
+        alert("The username is the wrong length.");
         throw new Error("The username is the wrong length.\n");
 
     } 
@@ -83,31 +83,30 @@ function validation_Pass(){
   
     var pass = document.getElementById("pwd").value.trim();
 
-     if ((pass.length < 6) || (pass.length > 25)) {
-        alert("NAME MUST BE GREATER THAN 6 AND SMALLER THAN 25");
-        throw new Error("NAME MUST BE GREATER THAN 6 AND SMALLER THAN 25\n");
+     if (pwd.length < 6 || pwd.length > 25) {
+        alert("Password MUST BE GREATER THAN 6 AND SMALLER THAN 25");
+        throw new Error("Password MUST BE GREATER THAN 6 AND SMALLER THAN 25\n");
 
     }
 
-    else if (!/[A-Z]/.test(pass)) {
+    else if ((/[A-Z]/) == -1) {
         alert("password must contain one Capital character");
         throw new Error( "password must contain one capital letter\n");
 
     }
 
-    else if (!/[a-z]/.test(pass)) {
+    else if ((/[a-z]/) == -1){
         alert("password must contain one small character");
         throw new Error( "password must contain one small letter\n");
 
     }
 
-    else if (!/[0-9]/.test(pass)) {
+    else if ((/[0-9]/) == -1){
         alert("password must contain one numeric value");
         throw new Error("password must contain one numeric\n");
 
     }
-
-    else if (!/\W/.test(pass)) {
+    else if ((/\W/) == -1) {
      alert("password must contain one special character");
         throw new Error("password must contain one special character\n");
 

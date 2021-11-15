@@ -58,21 +58,21 @@ class Invoice{
 		if (mysqli_num_rows($res_u) > 0) {
 			echo '<script>
 			  alert("username already exist");
-			  window.location="r.php";
+			  window.location="registration.php";
 		  </script>';
 		  exit();  
 		}
 		elseif (mysqli_num_rows($res_p) > 0) {
 			echo '<script>
 			  alert("phonenumber already exist");
-			  window.location="r.php";
+			  window.location="registration.php";
 		  </script>';
 		  exit();
 		}
 		else {
 			$qr = mysqli_query($this->dbConnect,"INSERT INTO invoice_user(first_name,email,password,mobile,address) values('".$username."','".$email."','".$password."','".$mobile."','".$address."')"); 
 			echo '<script>
-		    window.location="index2.php";
+		    window.location="index.php";
 			</script>';
 			return $qr;}	
 			  
@@ -83,7 +83,7 @@ class Invoice{
 	
 	public function checkLoggedIn(){
 		if(!$_SESSION['userid']) {
-			header("Location:index2.php");
+			header("Location:index.php");
 		}
 	}		
 	public function saveInvoice($POST) {		
