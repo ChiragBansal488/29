@@ -2,6 +2,8 @@
    session_start();
    include('header.php');
    include 'Invoice.php';
+
+
    $invoice = new Invoice();
    $invoice->checkLoggedIn();
    if(!empty($_POST['companyName']) && $_POST['address']) {	
@@ -14,8 +16,7 @@
 <link href="css/style.css" rel="stylesheet">
 
 <div class="container content-invoice">
-   <div class="cards">
-     <div class="card-bodys">
+
        <form action="" id="invoice-form" method="post" class="invoice-form" role="form" novalidate="">
       <div class="load-animate animated fadeInUp">
          <div class="row">
@@ -133,7 +134,7 @@
                <br>
                <div class="form-group">
                   <input type="hidden" value="<?php echo $_SESSION['userid']; ?>" class="form-control" name="userId">
-                  <input data-loading-text="Saving Invoice..." type="submit" name="invoice_btn" value="Save Invoice" class="btn btn-success submit_btn invoice-save-btm">           
+                  <input data-loading-text="Saving Invoice..." type="submit" id="create_invoice"name="invoice_btn" value="Save Invoice" class="btn btn-success submit_btn invoice-save-btm">           
                </div>
             </div>
          </div>

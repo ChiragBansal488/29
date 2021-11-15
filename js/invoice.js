@@ -112,7 +112,7 @@ function calculateTotal(){
            if( isNaN( parseFloat( this.value ) ) ) return;
            this.value = parseFloat(this.value).toFixed(2);
        }  
-    }            
+    }          
     return this; //for chaining
  });
 });
@@ -147,4 +147,38 @@ $(document).ready(function() {
 		  alert("You Limit is over ");
 		}
 	  });
+	  $('#create_invoice').click(function(){
+		if($.trim($('#companyName').val()).length == 0)
+		{
+		  alert("Please Enter Company Name");
+		  return false;
+		}
+		if($.trim($('#address').val()).length == 0)
+		{
+		  alert("Please Enter address");
+		  return false;
+		}
+		if($.trim($('#productName_1').val()).length == 0)
+		{
+		  alert("Please Enter ITEM name");
+		  return false;
+		}
+		if($.trim($('#itemRow_1').val()).length == 0)
+		{
+			alert("Please Enter ITEM Number");
+			return false;
+		}
+		if($.trim($('#quantity_1').val()).length == 0)
+		{
+			alert("Please Enter Quantity");
+			return false;
+		}
+		if($.trim($('#price_1').val()).length == 0)
+		{
+			alert("Please Enter Price");
+			return false;
+		}
+});
+
+
   });

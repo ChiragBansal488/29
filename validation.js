@@ -11,7 +11,7 @@ function valid() {
     catch (error) 
     {
         document.getElementById('console').innerHTML = 
-        "<h3 style='color:red'> Warning: </h3>" + error.message + "<a href='r.php'>Fill the correct Detail</a>";
+        "<h3 style='color:red'> Warning: </h3>" + error.message + "<a href='registration.php'>Fill the correct Detail</a>";
      
     }
 
@@ -40,9 +40,9 @@ function validation_Name()
 
 
 
-    if ((user.length < 5) || (user.length > 15)) {
-        alert("The username is the wrong length.");
-        throw new Error("The username is the wrong length.\n");
+    if ((user.length < 6) || (user.length > 15)) {
+        alert("The Your name  is the wrong length.");
+        throw new Error("The  Your name is the wrong length.\n");
 
     } 
 
@@ -83,30 +83,32 @@ function validation_Pass(){
   
     var pass = document.getElementById("pwd").value.trim();
 
-     if (pwd.length < 6 || pwd.length > 25) {
-        alert("Password MUST BE GREATER THAN 6 AND SMALLER THAN 25");
-        throw new Error("Password MUST BE GREATER THAN 6 AND SMALLER THAN 25\n");
+     if ((pass.length < 6) || (pass.length > 25)) {
+        alert("PASSWORD MUST BE GREATER THAN 6 AND SMALLER THAN 25");
+        throw new Error("PASSWORD MUST BE GREATER THAN 6 AND SMALLER THAN 25\n");
 
     }
 
-    else if ((/[A-Z]/) == -1) {
+    else if (!/[A-Z]/.test(pass)) {
         alert("password must contain one Capital character");
         throw new Error( "password must contain one capital letter\n");
 
     }
 
-    else if ((/[a-z]/) == -1){
+  
+        else if (!(/[a-z]/) .test(pass)) {
         alert("password must contain one small character");
         throw new Error( "password must contain one small letter\n");
 
     }
 
-    else if ((/[0-9]/) == -1){
+    else if (!/[0-9]/.test(pass)) {
         alert("password must contain one numeric value");
         throw new Error("password must contain one numeric\n");
 
     }
-    else if ((/\W/) == -1) {
+
+    else if (!/\W/.test(pass)) {
      alert("password must contain one special character");
         throw new Error("password must contain one special character\n");
 

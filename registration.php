@@ -1,3 +1,23 @@
+<?php  
+    include_once('invoice.php');  
+    //  $funObj = new Invoice(); 
+     $funObjj = new Invoice(); 
+
+    if(!empty($_POST['register'])){  
+        $username = $_POST['first_name']; 
+      
+        $mobile = $_POST['mobile']; 
+        $email = $_POST['email'];  
+        $password = $_POST['password'];  
+        $address = $_POST['address'];  
+        
+        
+       $email = $funObjj-> checkDuplicacy($username,$email, $password, $mobile,$address); 
+  
+      
+    
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -11,7 +31,7 @@
  
 <body >
  <div class="contaier"id="console"  >
-<form name="login"  action="reg_login.php" method="post">
+<form name="login"  action="" method="post">
 <h2>Registration Form</h2>
  
 <label  >Your Name :</label>
